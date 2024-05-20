@@ -162,9 +162,9 @@ class Polyedr:
                     # задание рёбер грани
                     for n in range(size):
                         if ((r_vertexes[n - 1]._is_good()) and
-                            (r_vertexes[n]._is_good())) and
-                        (not ((vertexes[n - 1], vertexes[n])
-                                in self.gr)):
+                            (r_vertexes[n]._is_good())) and\
+                            (not ((vertexes[n - 1], vertexes[n])
+                                    in self.gr)):
                             self.summ += (r_vertexes[n - 1].
                                           _dist_(r_vertexes[n]))
                             self.gr.add((vertexes[n - 1], vertexes[n]))
