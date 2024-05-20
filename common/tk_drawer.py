@@ -6,17 +6,20 @@ SIZE = 900
 SCALE = 1.5
 
 
-def x(p):
+def x(p):  # pragma: no cover
+
     """ преобразование x-координаты """
     return SIZE / 2 + SCALE * p.x
 
 
-def y(p):
+def y(p):  # pragma: no cover
+
     """" преобразование y-координаты """
     return SIZE / 2 - SCALE * p.y
 
 
-class TkDrawer:
+class TkDrawer:  # pragma: no cover
+
     """ Графический интерфейс """
 
     # Конструктор
@@ -34,7 +37,8 @@ class TkDrawer:
         self.root.quit()
 
     # Стирание существующей картинки
-    def clean(self):
+    def clean(self):  # pragma: no cover
+
         self.canvas.create_rectangle(0, 0, SIZE, SIZE, fill="white")
         self.root.update()
 
