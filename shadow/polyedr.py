@@ -129,6 +129,7 @@ class Polyedr:
         self.vertexes, self.edges, self.facets = [], [], []
         self.real_vertexes = []
         self.summ = 0
+        self.gr = set()
 
         # список строк файла
         with open(file) as f:
@@ -161,9 +162,13 @@ class Polyedr:
                     # задание рёбер грани
                     for n in range(size):
                         if ((r_vertexes[n - 1]._is_good()) and
-                                (r_vertexes[n]._is_good())):
+                            (r_vertexes[n]._is_good())) and
+                        (not ((vertexes[n - 1], vertexes[n])
+                                in self.gr)):
                             self.summ += (r_vertexes[n - 1].
                                           _dist_(r_vertexes[n]))
+                            self.gr.add((vertexes[n - 1], vertexes[n]))
+                            self.gr.add((vertexes[n], vertexes[n - 1]))
                         self.edges.append(Edge(vertexes[n - 1], vertexes[n]))
                     # задание самой грани
                     self.facets.append(Facet(vertexes))
@@ -178,4 +183,4 @@ class Polyedr:
                 tk.draw_line(e.r3(s.beg), e.r3(s.fin))
 
     def g(self):
-        return self.summ / 2
+        return self.summ
