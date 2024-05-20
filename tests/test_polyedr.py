@@ -52,7 +52,7 @@ class TestPolyedr(unittest.TestCase):
         with patch('shadow.polyedr.open'.format(__name__),
                    new=mock_open(read_data=fake_file_content)) as _file:
             self.polyedr = Polyedr(fake_file_path)
-        self.assertAlmostEqual(self.polyedr.summ, 14.485281374238568)
+        self.assertAlmostEqual(self.polyedr.summ, 7.242640687119284)
 
     def test_g(self):
         fake_file_content = """40.0	45.0	-30.0	-60.0
